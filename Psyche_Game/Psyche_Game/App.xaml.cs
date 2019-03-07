@@ -7,6 +7,10 @@ namespace Psyche_Game
 {
     public partial class App : Application
     {
+        public static int Height { get; set; }
+        public static int Width { get; set; }
+        public static int Density { get; set; }
+
         public App()
         {
             InitializeComponent();

@@ -23,6 +23,11 @@ namespace Psyche_Game.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            App.Height = (int)UIScreen.MainScreen.Bounds.Height;
+            App.Width = (int)UIScreen.MainScreen.Bounds.Width;
+            App.Density = (int)UIScreen.MainScreen.Scale;
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

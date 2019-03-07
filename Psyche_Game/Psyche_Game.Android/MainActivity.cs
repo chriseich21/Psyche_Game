@@ -18,6 +18,12 @@ namespace Psyche_Game.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+
+            var metrics = Resources.DisplayMetrics;
+            App.Width = Convert.ToInt32(metrics.WidthPixels / metrics.Density);
+            App.Height = Convert.ToInt32(metrics.HeightPixels / metrics.Density);
+            App.Density = Convert.ToInt32(metrics.Density);
+
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
