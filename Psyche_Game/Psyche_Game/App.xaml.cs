@@ -15,7 +15,9 @@ namespace Psyche_Game
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage() { BackgroundImage = "psyche_menu_background.png"} );
+            
+            
         }
 
         protected override void OnStart()

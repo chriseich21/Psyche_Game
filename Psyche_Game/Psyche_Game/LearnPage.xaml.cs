@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Psyche_Game
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Main_Menu : ContentView
+	public partial class LearnPage : ContentPage
 	{
-		public Main_Menu ()
+		public LearnPage ()
 		{
 			InitializeComponent ();
 		}

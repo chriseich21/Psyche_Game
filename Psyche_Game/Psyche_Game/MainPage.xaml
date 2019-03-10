@@ -4,11 +4,43 @@
              xmlns:local="clr-namespace:Psyche_Game"
              x:Class="Psyche_Game.MainPage">
 
-    <StackLayout>
+
+    <StackLayout >
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <Button Grid.Column ="0" Grid.ColumnSpan="3" Grid.Row="2"  Grid.RowSpan="2" 
+                    Text="Has Image"  BackgroundColor="Orange" TextColor="White"/>
+            <Button Grid.Column ="1" Grid.ColumnSpan="2" Grid.Row="4" Margin="0"
+                    Text="Start" BackgroundColor="Orange" TextColor="White" 
+                    Clicked="OnStartButtonClicked"/>
+            <Button Grid.Column ="1" Grid.ColumnSpan="2" Grid.Row="5" Margin="0"
+                    Text="Options" BackgroundColor="Orange" TextColor="White"
+                    Clicked="OnOptionsButtonClicked"/>
+            <Button Grid.Column ="1" Grid.ColumnSpan="2" Grid.Row="6" Margin="0"
+                    Text="Learn More" BackgroundColor="Orange" TextColor="White"
+                    Clicked="OnLearnMoreClicked"/>
+            <Button Grid.Column ="1" Grid.ColumnSpan="2" Grid.Row="7" Margin="0"
+                    Text="Exit" BackgroundColor="Orange" TextColor="White"
+                    Clicked="OnExitButtonClicked"/>
+        </Grid>
+        
     </StackLayout>
 
 </ContentPage>

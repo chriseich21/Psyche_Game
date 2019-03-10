@@ -157,4 +157,7 @@
       <Name>Psyche_Game</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\psyche_menu_background.png" />
+  </ItemGroup>
 </Project>
