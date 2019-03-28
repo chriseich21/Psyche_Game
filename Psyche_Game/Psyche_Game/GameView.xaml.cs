@@ -13,7 +13,8 @@ namespace Psyche_Game
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GameView : ContentView
     {
-        GameScene _scene;
+        CCScene _scene;
+        ProbeLayer _layer;
         public GameView()
         {
             var sharpView = new CocosSharpView
@@ -28,17 +29,21 @@ namespace Psyche_Game
         void HandleViewCreated(object sender, EventArgs e)
         {
             var ccGView = sender as CCGameView;
+            var contentSearchPaths = new List<string>() { "Resources" };
+            ccGView.ContentManager.SearchPaths = contentSearchPaths;
             if (ccGView != null)
             {
                 ccGView.DesignResolution = new CCSizeI(App.Width, App.Height);
-                _scene = new GameScene(ccGView);
+                _scene = new CCScene(ccGView);
+                _layer = new ProbeLayer();
+                _scene.AddLayer(_layer);
                 var touchEvent = new CCEventListenerTouchOneByOne();
                 touchEvent.OnTouchBegan = (touch, _event) => {
-                    _scene.DrawParticle(touch.LocationOnScreen);
+                    //_scene.DrawParticle(touch.LocationOnScreen);
                     return true;
                 };
                 touchEvent.OnTouchMoved = (touch, _event) => {
-                    _scene.DrawParticle(touch.LocationOnScreen);
+                    //_scene.DrawParticle(touch.LocationOnScreen);
                 };
                 _scene.AddEventListener(touchEvent);
                 ccGView.RunWithScene(_scene);
