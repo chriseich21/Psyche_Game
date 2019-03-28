@@ -22,7 +22,7 @@ namespace Psyche_Game
 
         async void OnLaunchClicked(object sender, EventArgs e)
         {
-            GamePage GameInstance = new GamePage() { BackgroundImage = "psyche_launchpad.png" };
+            GamePage GameInstance = new GamePage() { Content = new GameView() };
             NavigationPage.SetHasNavigationBar(GameInstance, false);
 
             await Navigation.PushAsync(GameInstance);
