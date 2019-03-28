@@ -16,7 +16,10 @@ namespace Psyche_Game
 
         async void OnStartButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new GamePage());
+            LaunchPage GameInstance = new LaunchPage() { BackgroundImage = "psyche_launchpad.png"  };
+            NavigationPage.SetHasNavigationBar(GameInstance, true);
+
+            await Navigation.PushAsync(GameInstance);
             //await Navigation.PopAsync();
         }
         async void OnOptionsButtonClicked(object sender, EventArgs e)
@@ -29,9 +32,9 @@ namespace Psyche_Game
             await Navigation.PushAsync(new LearnPage());
             //await Navigation.PopAsync();
         }
-        async void OnExitButtonClicked(object sender, EventArgs e)
+        /*async void OnExitButtonClicked(object sender, EventArgs e)
         {
             //await Navigation.PopAsync();
-        }
+        }*/
     }
 }

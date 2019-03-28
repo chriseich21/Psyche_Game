@@ -160,4 +160,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\psyche_menu_background.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\psyche_menu_label.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\psyche_launchpad.png" />
+  </ItemGroup>
 </Project>
