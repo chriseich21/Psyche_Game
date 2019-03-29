@@ -39,20 +39,31 @@ namespace Psyche_Game
                 _layer = new CCLayer();
                 _scene.AddLayer(_layer);
                 ship = new Ship();
-                ship.PositionX = 240;
+                ship.PositionX = 200;
                 ship.PositionY = 50;
                 _layer.AddChild(ship);
-                var touchEvent = new CCEventListenerTouchOneByOne();
-                touchEvent.OnTouchBegan = (touch, _event) => {
-                    //_scene.DrawParticle(touch.LocationOnScreen);
-                    return true;
-                };
-                touchEvent.OnTouchMoved = (touch, _event) => {
-                    //_scene.DrawParticle(touch.LocationOnScreen);
-                };
-                _scene.AddEventListener(touchEvent);
+                var touchEvent = new CCEventListenerTouchAllAtOnce();
+                touchEvent.OnTouchesEnded = OnTouchesEnded;
+                touchEvent.OnTouchesMoved = HandleTouchesMoved;
+                _layer.AddEventListener(touchEvent);
                 ccGView.RunWithScene(_scene);
             }
+        }
+
+        void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
+        {
+            if (touches.Count > 0)
+            {
+                // Perform touch handling here
+            }
+        }
+
+        void HandleTouchesMoved(System.Collections.Generic.List<CCTouch> touches, CCEvent touchEvent)
+        {
+            // we only care about the first touch:
+            var locationOnScreen = touches[0].Location;
+            ship.PositionX = locationOnScreen.X;
+            ship.PositionY = locationOnScreen.Y;
         }
     }
 }
