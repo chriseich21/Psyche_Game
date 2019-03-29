@@ -15,6 +15,7 @@ namespace Psyche_Game
 		public GamePage ()
 		{
 			InitializeComponent ();
+
 		}
 	}
 }

@@ -105,5 +105,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\psyche_launchpad.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\psyche_rocket.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

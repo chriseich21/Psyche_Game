@@ -14,6 +14,7 @@ namespace Psyche_Game
     public partial class GameView : ContentView
     {
         GameScene _scene;
+
         public GameView()
         {
             var sharpView = new CocosSharpView
@@ -41,6 +42,11 @@ namespace Psyche_Game
                     _scene.DrawParticle(touch.LocationOnScreen);
                 };
                 _scene.AddEventListener(touchEvent);
+                CCSprite s = new CCSprite("psyche_rocket.png");
+                s.PositionX = 100;
+                s.PositionY = 100;
+                
+                _scene.AddChild(s);
                 ccGView.RunWithScene(_scene);
             }
         }

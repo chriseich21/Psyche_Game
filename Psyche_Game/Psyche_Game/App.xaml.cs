@@ -15,6 +15,7 @@ namespace Psyche_Game
         {
             InitializeComponent();
 
+
             MainPage Menu = new MainPage() { BackgroundImage = "psyche_menu_background.png" };
             NavigationPage.SetHasNavigationBar(Menu, false);
             MainPage = new NavigationPage(Menu) { BarBackgroundColor = Color.Black, BarTextColor = Color.White};

@@ -26,6 +26,9 @@ namespace Psyche_Game
             };
 
             _layer.AddChild(explosion);
+            var back = new CCSprite("psyche_launchpad.png");
+            AddChild(back);
+
         }
     }
 }
