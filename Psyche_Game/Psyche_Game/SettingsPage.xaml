@@ -4,9 +4,21 @@
              x:Class="Psyche_Game.SettingsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Settings"
+            <Label Text="Application Settings"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                FontAttributes="Bold"
+                FontSize="Medium" />
+            <Label Text="Brightness"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Slider Minimum="0" Maximum="100"
+                VerticalOptions="CenterAndExpand" />
+            <Label Text="Game Volume"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Slider Minimum="0" Maximum="100" 
+                VerticalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
