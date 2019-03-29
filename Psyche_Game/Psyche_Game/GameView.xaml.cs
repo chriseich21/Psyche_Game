@@ -16,6 +16,8 @@ namespace Psyche_Game
         CCScene _scene;
         CCLayer _layer;
         Ship ship;
+        List<Asteroid> asteroids;
+
         public GameView()
         {
             var sharpView = new CocosSharpView
@@ -38,14 +40,27 @@ namespace Psyche_Game
                 _scene = new CCScene(ccGView);
                 _layer = new CCLayer();
                 _scene.AddLayer(_layer);
+
+                //ship
                 ship = new Ship();
                 ship.PositionX = 200;
                 ship.PositionY = 50;
                 _layer.AddChild(ship);
+
                 var touchEvent = new CCEventListenerTouchAllAtOnce();
                 touchEvent.OnTouchesEnded = OnTouchesEnded;
                 touchEvent.OnTouchesMoved = HandleTouchesMoved;
                 _layer.AddEventListener(touchEvent);
+
+                //asteroid
+                asteroids = new List<Asteroid>();
+                void HandleAsteroidCreated(Asteroid newAsteroid)
+                {
+                    _layer.AddChild(newAsteroid);
+                    asteroids.Add(newAsteroid);
+                }
+                AsteroidFactory.Self.AsteroidCreated += HandleAsteroidCreated;
+
                 ccGView.RunWithScene(_scene);
             }
         }

@@ -167,9 +167,18 @@
     <BundleResource Include="Resources\psyche_launchpad.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\psyche_elements_large_renders02.png" />
+    <BundleResource Include="Resources\rocket.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\asteroid3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\asteroid2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\asteroid1.png" />
   </ItemGroup>
 </Project>
