@@ -11,24 +11,8 @@ namespace Psyche_Game
 
         public GameScene(CCGameView gameView) : base(gameView)
         {
-            _layer = new CCLayer();
+            _layer = new ProbeLayer();
             this.AddLayer(_layer);
-        }
-
-        public void DrawParticle(CCPoint point)
-        {
-            var explosion = new CCParticleExplosion(CCPoint.Zero)
-            {
-                TotalParticles = 10,
-                StartColor = new CCColor4F(CCColor3B.White),
-                EndColor = new CCColor4F(CCColor3B.Black),
-                Position = new CCPoint(point.X / App.Density, App.Height - point.Y / App.Density)
-            };
-
-            _layer.AddChild(explosion);
-            var back = new CCSprite("psyche_launchpad.png");
-            AddChild(back);
-
         }
     }
 }

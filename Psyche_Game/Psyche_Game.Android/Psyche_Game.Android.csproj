@@ -106,7 +106,13 @@
     <AndroidResource Include="Resources\drawable\psyche_launchpad.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\psyche_rocket.png" />
+    <AndroidResource Include="Resources\drawable\psyche_elements_large_renders02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\psyche_elements_large_renders02.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidAsset>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

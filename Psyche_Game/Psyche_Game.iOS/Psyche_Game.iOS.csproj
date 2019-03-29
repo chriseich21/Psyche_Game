@@ -166,4 +166,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\psyche_launchpad.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\psyche_elements_large_renders02.png" />
+  </ItemGroup>
 </Project>

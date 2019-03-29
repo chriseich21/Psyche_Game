@@ -13,8 +13,9 @@ namespace Psyche_Game
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GameView : ContentView
     {
-        GameScene _scene;
-
+        CCScene _scene;
+        CCLayer _layer;
+        Ship ship;
         public GameView()
         {
             var sharpView = new CocosSharpView
@@ -29,6 +30,8 @@ namespace Psyche_Game
         void HandleViewCreated(object sender, EventArgs e)
         {
             var ccGView = sender as CCGameView;
+            var contentSearchPaths = new List<string>() { "Resources" };
+            ccGView.ContentManager.SearchPaths = contentSearchPaths;
             if (ccGView != null)
             {
                 ccGView.DesignResolution = new CCSizeI(App.Width, App.Height);
@@ -42,13 +45,24 @@ namespace Psyche_Game
                     _scene.DrawParticle(touch.LocationOnScreen);
                 };
                 _scene.AddEventListener(touchEvent);
-                CCSprite s = new CCSprite("psyche_rocket.png");
-                s.PositionX = 100;
-                s.PositionY = 100;
-                
-                _scene.AddChild(s);
                 ccGView.RunWithScene(_scene);
             }
+        }
+
+        void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
+        {
+            if (touches.Count > 0)
+            {
+                // Perform touch handling here
+            }
+        }
+
+        void HandleTouchesMoved(System.Collections.Generic.List<CCTouch> touches, CCEvent touchEvent)
+        {
+            // we only care about the first touch:
+            var locationOnScreen = touches[0].Location;
+            ship.PositionX = locationOnScreen.X;
+            ship.PositionY = locationOnScreen.Y;
         }
     }
 }
