@@ -29,8 +29,8 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <StackLayout Grid.Column ="1" Grid.ColumnSpan="6" Grid.Row="5" Grid.RowSpan="10">
-                    <Image Source="rocket.png"></Image>
+                <StackLayout x:Name="Rocket" Grid.Column ="1" Grid.ColumnSpan="6" Grid.Row="5" Grid.RowSpan="10">
+                    <Image  Source="rocket.png"></Image>
                 </StackLayout>
                 
                 

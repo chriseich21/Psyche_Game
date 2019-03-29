@@ -27,13 +27,18 @@ namespace Psyche_Game
         async void OnLaunchClicked(object sender, EventArgs e){
             GamePage GameInstance = new GamePage() { Content = new GameView() };
             NavigationPage.SetHasNavigationBar(GameInstance, false);
-          
+            var rocket = this.FindByName("Rocket");
+            await ((StackLayout)rocket).TranslateTo(0, -1000, 1000);
 
-            await Navigation.PushAsync(GameInstance);
+            //  await Navigation.PushAsync(GameInstance);
+            Navigation.InsertPageBefore(GameInstance, Navigation.NavigationStack[0]);
+            await Navigation.PopToRootAsync();
+            await ((StackLayout)rocket).TranslateTo(0, 1000, 1000);
         }
 
         async void OnBackButtonClicked(object sender, EventArgs e)
         {
+         
             await Navigation.PopAsync();
         }
     }

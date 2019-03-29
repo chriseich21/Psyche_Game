@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Psyche_Game.LearnPage">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout>
-            <Label Text="Learn so much about Psyche"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="The asteroid Psyche is a metallic proto-world in our solar system's asteroid belt. Nasa has launched an eponymous mission to visit Psyche, which is currently in phase 'B', a design and instrument testing phase. Our proposal is to represent this phase in a mobile application which simulates the design decisions incumbent upon Nasa engineers through a simplified design and launching simulation system. Users will launch a probe, governed by a simplified 2d physics system, guiding it through various obstacles and setting it on the proper trajectory. Then, after a run is completed, users will be able to purchase different or more advanced equipment for Psyche, based largely on the actual equipment being used, but with simplified functionality for ingame purposes. The players will gain dollars based on the success of their mission, and be able to buy accurately priced upgrades for their 2d version of the Psyche probe. Upon death, interesting and relevant facts concerning the Psyche mission will be displayed, and the user will summarily be returned to the starting menu for another attempt. Although Nasa will not literally be launching multiple probes in the Psyche mission just to test different equipment configurations, the rapid design, testing, and simulation that is an integral part of its engineering design process is well represented by our proposed application, which can be thought of as a such a simulation."
+                VerticalOptions="Start" 
+                HorizontalOptions="Start"  TextColor="White" FontFamily="Arial" Margin="20"/> <!-- Start =  left justify -->
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
