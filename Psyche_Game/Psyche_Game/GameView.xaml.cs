@@ -35,16 +35,17 @@ namespace Psyche_Game
             if (ccGView != null)
             {
                 ccGView.DesignResolution = new CCSizeI(App.Width, App.Height);
-                _scene = new GameScene(ccGView);
-                var touchEvent = new CCEventListenerTouchOneByOne();
-                touchEvent.OnTouchBegan = (touch, _event) => {
-                    _scene.DrawParticle(touch.LocationOnScreen);
-                    return true;
-                };
-                touchEvent.OnTouchMoved = (touch, _event) => {
-                    _scene.DrawParticle(touch.LocationOnScreen);
-                };
-                _scene.AddEventListener(touchEvent);
+                _scene = new CCScene(ccGView);
+                _layer = new CCLayer();
+                _scene.AddLayer(_layer);
+                ship = new Ship();
+                ship.PositionX = 200;
+                ship.PositionY = 50;
+                _layer.AddChild(ship);
+                var touchEvent = new CCEventListenerTouchAllAtOnce();
+                touchEvent.OnTouchesEnded = OnTouchesEnded;
+                touchEvent.OnTouchesMoved = HandleTouchesMoved;
+                _layer.AddEventListener(touchEvent);
                 ccGView.RunWithScene(_scene);
             }
         }

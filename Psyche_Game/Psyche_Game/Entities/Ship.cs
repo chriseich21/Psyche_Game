@@ -11,7 +11,7 @@ namespace Psyche_Game
 
         public Ship() : base()
         {
-            sprite = new CCSprite("psyche_elements_large_renders02.png");
+            sprite = new CCSprite("rocket.png");
             // Center the Sprite in this entity to simplify
             // centering the Ship when it is instantiated
             sprite.Scale = 0.5F;

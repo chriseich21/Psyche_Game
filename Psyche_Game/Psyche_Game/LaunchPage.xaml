@@ -9,6 +9,10 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -23,11 +27,15 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-
+                <StackLayout Grid.Column ="1" Grid.ColumnSpan="6" Grid.Row="5" Grid.RowSpan="10">
+                    <Image Source="rocket.png"></Image>
+                </StackLayout>
                 
-                <Button Grid.Column ="1" Grid.ColumnSpan="1" Grid.Row="10" Grid.RowSpan="1"
-                    Text="Launch" BackgroundColor="Red" TextColor="White" FontAttributes="Bold"
+                
+                <Button Grid.Column ="2" Grid.ColumnSpan="3" Grid.Row="13" Grid.RowSpan="1" Padding="0"
+                    Text="Launch" BackgroundColor="Red" TextColor="White" FontAttributes="Bold" FontFamily="Arial"
                     Clicked="OnLaunchClicked" Opacity="1">
 
                 </Button>

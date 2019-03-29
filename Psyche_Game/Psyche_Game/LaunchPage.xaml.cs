@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CocosSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,18 +13,21 @@ namespace Psyche_Game
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LaunchPage : ContentPage
 	{
-		public LaunchPage ()
-		{
+        CocosSharpView gameView;
+
+        public LaunchPage()
+        {
             InitializeComponent();
 
             ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("4698CF");
             ((NavigationPage)Application.Current.MainPage).BarTextColor = Color.WhiteSmoke;
+           
         }
 
-        async void OnLaunchClicked(object sender, EventArgs e)
-        {
+        async void OnLaunchClicked(object sender, EventArgs e){
             GamePage GameInstance = new GamePage() { Content = new GameView() };
             NavigationPage.SetHasNavigationBar(GameInstance, false);
+          
 
             await Navigation.PushAsync(GameInstance);
         }

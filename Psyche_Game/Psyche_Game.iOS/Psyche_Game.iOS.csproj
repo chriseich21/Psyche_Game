@@ -169,4 +169,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\psyche_elements_large_renders02.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button.png" />
+  </ItemGroup>
 </Project>

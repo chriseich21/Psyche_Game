@@ -15,6 +15,9 @@ namespace Psyche_Game
 		public SettingsPage ()
 		{
 			InitializeComponent ();
-		}
+
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#F9A11B");
+            ((NavigationPage)Application.Current.MainPage).BarTextColor = Color.WhiteSmoke;
+        }
 	}
 }

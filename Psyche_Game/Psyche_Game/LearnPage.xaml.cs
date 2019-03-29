@@ -15,6 +15,9 @@ namespace Psyche_Game
 		public LearnPage ()
 		{
 			InitializeComponent ();
-		}
+
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#F17C33");
+            ((NavigationPage)Application.Current.MainPage).BarTextColor = Color.WhiteSmoke;
+        }
 	}
 }
