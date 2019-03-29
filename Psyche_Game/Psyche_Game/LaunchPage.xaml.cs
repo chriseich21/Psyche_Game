@@ -33,7 +33,7 @@ namespace Psyche_Game
             //  await Navigation.PushAsync(GameInstance);
             Navigation.InsertPageBefore(GameInstance, Navigation.NavigationStack[0]);
             await Navigation.PopToRootAsync();
-            await ((StackLayout)rocket).TranslateTo(0, 1000, 1000);
+
         }
 
         async void OnBackButtonClicked(object sender, EventArgs e)

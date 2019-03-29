@@ -18,6 +18,7 @@ namespace Psyche_Game
         Ship ship;
         List<Asteroid> asteroids;
 
+        CCParticleFire fire;
         public GameView()
         {
             var sharpView = new CocosSharpView
@@ -27,6 +28,20 @@ namespace Psyche_Game
                 ViewCreated = HandleViewCreated
             };
             Content = sharpView;
+        }
+
+        public void DrawParticle(CCPoint point)
+        {
+            var explosion = new CCParticleFireworks(CCPoint.Zero)
+            {
+                TotalParticles = 10,
+                StartColor = new CCColor4F(CCColor3B.White),
+                EndColor = new CCColor4F(CCColor3B.Black),
+                Position = new CCPoint(point.X,point.Y )
+                
+            };
+
+            _layer.AddChild(explosion);
         }
 
         void HandleViewCreated(object sender, EventArgs e)
@@ -46,6 +61,14 @@ namespace Psyche_Game
                 ship.PositionX = 200;
                 ship.PositionY = 50;
                 _layer.AddChild(ship);
+
+                fire = new CCParticleFire(new CCPoint(200, 50))
+                {
+                    StartSize = 1,
+                    Angle = 270
+                   
+                };
+                _layer.AddChild(fire);
 
                 var touchEvent = new CCEventListenerTouchAllAtOnce();
                 touchEvent.OnTouchesEnded = OnTouchesEnded;
@@ -79,6 +102,9 @@ namespace Psyche_Game
             var locationOnScreen = touches[0].Location;
             ship.PositionX = locationOnScreen.X;
             ship.PositionY = locationOnScreen.Y;
+            fire.PositionX = locationOnScreen.X;
+            fire.PositionY = locationOnScreen.Y;
+            
         }
     }
 }

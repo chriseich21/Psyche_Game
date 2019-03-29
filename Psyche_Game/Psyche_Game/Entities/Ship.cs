@@ -15,7 +15,7 @@ namespace Psyche_Game
             // Center the Sprite in this entity to simplify
             // centering the Ship when it is instantiated
             sprite.Scale = 0.5F;
-            sprite.AnchorPoint = CCPoint.AnchorMiddle;
+            sprite.AnchorPoint = CCPoint.AnchorMiddleBottom;
             this.AddChild(sprite);
 
             Schedule(SeeAsteroid, interval: 1.5f);
