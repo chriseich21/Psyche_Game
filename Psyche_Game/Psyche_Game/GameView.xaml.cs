@@ -14,7 +14,8 @@ namespace Psyche_Game
     public partial class GameView : ContentView
     {
         CCScene _scene;
-        ProbeLayer _layer;
+        CCLayer _layer;
+        Ship ship;
         public GameView()
         {
             var sharpView = new CocosSharpView
@@ -35,8 +36,12 @@ namespace Psyche_Game
             {
                 ccGView.DesignResolution = new CCSizeI(App.Width, App.Height);
                 _scene = new CCScene(ccGView);
-                _layer = new ProbeLayer();
+                _layer = new CCLayer();
                 _scene.AddLayer(_layer);
+                ship = new Ship();
+                ship.PositionX = 240;
+                ship.PositionY = 50;
+                _layer.AddChild(ship);
                 var touchEvent = new CCEventListenerTouchOneByOne();
                 touchEvent.OnTouchBegan = (touch, _event) => {
                     //_scene.DrawParticle(touch.LocationOnScreen);
