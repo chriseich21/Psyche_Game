@@ -24,7 +24,8 @@ namespace Psyche_Game
         }
         async void OnOptionsButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SettingsPage());
+            SettingsPage settingsPage = new SettingsPage() { BackgroundColor = Color.FromHex("1C0F2A") };
+            await Navigation.PushAsync(settingsPage);
             //await Navigation.PopAsync();
         }
         async void OnLearnMoreClicked(object sender, EventArgs e)
