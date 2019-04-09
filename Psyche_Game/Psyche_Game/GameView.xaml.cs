@@ -17,6 +17,7 @@ namespace Psyche_Game
         CCLayer _layer;
         Ship ship;
         List<Asteroid> asteroids;
+        Psyche psyche;
 
         CCParticleFire fire;
         public GameView()
@@ -84,6 +85,19 @@ namespace Psyche_Game
                 }
                 AsteroidFactory.Self.AsteroidCreated += HandleAsteroidCreated;
 
+                //psyche
+
+                psyche = new Psyche();
+                psyche.PositionX = 200;
+                psyche.PositionY = 2000;
+                psyche.VelocityY = -50;
+                _layer.AddChild(psyche);
+                if (psyche.PositionY == 200)
+                {
+                    psyche.VelocityY = 0;
+                    psyche.PositionY = 200;
+                }
+
                 ccGView.RunWithScene(_scene);
             }
         }
@@ -104,7 +118,6 @@ namespace Psyche_Game
             ship.PositionY = locationOnScreen.Y;
             fire.PositionX = locationOnScreen.X;
             fire.PositionY = locationOnScreen.Y;
-            
         }
     }
 }
