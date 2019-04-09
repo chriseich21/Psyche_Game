@@ -21,7 +21,7 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-              
+                
               
                 <Button Grid.Column ="1" Grid.ColumnSpan="1" Grid.Row="9" Margin="0"
                     Text="Launch" BackgroundColor="Red" TextColor="White"

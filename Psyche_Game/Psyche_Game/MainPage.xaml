@@ -24,9 +24,14 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            
+
+            <!--<StackLayout Grid.Column = "0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="9">
+                <Image x:Name="Star_Tiles1" Source="starbackground_new.png"></Image>
+            </StackLayout>-->
+          
+
             <StackLayout Grid.Column ="0" Grid.ColumnSpan="3" Grid.Row="1"  Grid.RowSpan="3" >
-                <Image  Source = "psyche_banner.png"/>
+                <Image Source = "psyche_banner.png"/>
             </StackLayout>
 
 
