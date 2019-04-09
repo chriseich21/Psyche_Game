@@ -181,4 +181,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\asteroid1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\psycheAsteroid.png" />
+  </ItemGroup>
 </Project>

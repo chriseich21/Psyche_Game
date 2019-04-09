@@ -19,6 +19,7 @@ namespace Psyche_Game
             this.AddChild(sprite);
 
             Schedule(SeeAsteroid, interval: 1.5f);
+            //Schedule(SeePsyche);
         }
 
         void SeeAsteroid(float unusedValue)
@@ -28,5 +29,13 @@ namespace Psyche_Game
             newAsteroid.PositionY = 500;
             newAsteroid.VelocityY = -50;
         }
+        /*
+        void SeePsyche(float unusedValue)
+        {
+            Psyche newPsyche = new Psyche();
+            newPsyche.PositionX = 200;
+            newPsyche.PositionY = 500;
+            newPsyche.VelocityY = -50;
+        }*/
     }
 }
