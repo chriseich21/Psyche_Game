@@ -17,6 +17,7 @@ namespace Psyche_Game
 
 
             MainPage Menu = new MainPage() { BackgroundImage = "psyche_menu_background.png" };
+            //LaunchPage Menu = new LaunchPage() { BackgroundImage = "psyche_launchpad.png" };
             NavigationPage.SetHasNavigationBar(Menu, false);
             MainPage = new NavigationPage(Menu) { BarBackgroundColor = Color.Black, BarTextColor = Color.White};
             

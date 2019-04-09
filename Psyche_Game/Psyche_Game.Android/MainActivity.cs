@@ -9,7 +9,7 @@ using Android.OS;
 
 namespace Psyche_Game.Droid
 {
-    [Activity(Label = "Psyche_Game", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Cruise", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -23,7 +23,7 @@ namespace Psyche_Game.Droid
             App.Width = Convert.ToInt32(metrics.WidthPixels / metrics.Density);
             App.Height = Convert.ToInt32(metrics.HeightPixels / metrics.Density);
             App.Density = Convert.ToInt32(metrics.Density);
-
+            
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }

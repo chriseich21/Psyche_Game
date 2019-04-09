@@ -27,6 +27,7 @@ namespace Psyche_Game
         async void OnLaunchClicked(object sender, EventArgs e){
             GamePage GameInstance = new GamePage() { BackgroundColor = Color.Black, Content = new GameView() { BackgroundColor=Color.Black} };
             NavigationPage.SetHasNavigationBar(GameInstance, false);
+         
             var rocket = this.FindByName("Rocket");
             await ((StackLayout)rocket).TranslateTo(0, -1000, 1000);
 

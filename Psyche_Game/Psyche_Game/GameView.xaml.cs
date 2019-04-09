@@ -62,11 +62,46 @@ namespace Psyche_Game
                 ship.PositionY = 50;
                 _layer.AddChild(ship);
 
+
+                var stars = new CCParticleRain(new CCPoint(200, App.Height))
+                {
+                    StartSize = 1,
+                    Color = CCColor3B.White,
+                    Speed = 250,
+                    SourcePosition = new CCPoint(0.0f, -10.0f),
+
+                };
+                stars.StartColor = new CCColor4F(1.0f, 1.0f, 1.0f, 1.0f);
+                _layer.AddChild(stars);
+
+
+                var faststars = new CCParticleRain(new CCPoint(200, App.Height))
+                {
+                    StartSize = 1,
+                    Speed = 500,
+                    SourcePosition = new CCPoint(0.0f, -10.0f),
+                    
+                };
+                faststars.StartColor = new CCColor4F(1.0f,1.0f,1.0f,1.0f);
+                _layer.AddChild(faststars);
+                /*
+                var slowstars = new CCParticleRain(new CCPoint(200, App.Height))
+                {
+                    StartSize = 2,
+                    Color = CCColor3B.Blue,
+                    Speed = 50,
+                    SourcePosition = new CCPoint(0.0f, -10.0f),
+
+                };*/
+               // _layer.AddChild(slowstars);
+
                 fire = new CCParticleFire(new CCPoint(200, 50))
                 {
                     StartSize = 1,
-                    Angle = 270
-                   
+                    Angle = 270,
+                    Speed = 100,
+                    SourcePosition = new CCPoint(0.0f,-10.0f),
+                    
                 };
                 _layer.AddChild(fire);
 
