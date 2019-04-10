@@ -33,7 +33,44 @@ namespace Psyche_Game
 
         public void Update()
         {
-               //collision here
+            //collision here
+            CheckCollision();
+
+        }
+        void CheckCollision()
+        {
+
+            foreach (var asteroid in asteroids)
+            {
+                float shipx;
+                float shipy;
+                float ship;
+
+
+                //bool hit = Intersectsrect();
+                //if (hit)
+                //{
+                  //  ship.PositionX = 0;
+                //}
+            }
+        }
+        bool Intersectsrect(float sprite1x,float sprite1y,float sprite1width,float sprite1height, float sprite2x, float sprite2y, float sprite2width, float sprite2height) {
+            if (sprite1x == sprite1y)
+            {
+                return true;
+            }
+            if (sprite1y==sprite2y) {
+                return true;
+            }
+            if (sprite1width == sprite2width)
+            {
+                return true;
+            }
+            if (sprite1height == sprite2height)
+            {
+                return true;
+            }
+            return false;
         }
 
         public void DrawParticle(CCPoint point)
