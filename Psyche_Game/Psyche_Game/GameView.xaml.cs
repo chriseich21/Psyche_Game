@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CocosSharp;
+using CocosDenshion;
 
 namespace Psyche_Game
 {
@@ -42,16 +43,12 @@ namespace Psyche_Game
 
             foreach (var asteroid in asteroids)
             {
-                float shipx;
-                float shipy;
-                float ship;
+                bool hit = ship.sprite.BoundingBoxTransformedToWorld.IntersectsRect(asteroid.sprite.BoundingBoxTransformedToWorld);
 
-
-                //bool hit = Intersectsrect();
-                //if (hit)
-                //{
-                  //  ship.PositionX = 0;
-                //}
+                if (hit)
+                {
+                        //Collision Event
+                }
             }
         }
         bool Intersectsrect(float sprite1x,float sprite1y,float sprite1width,float sprite1height, float sprite2x, float sprite2y, float sprite2width, float sprite2height) {
@@ -91,9 +88,12 @@ namespace Psyche_Game
 
         void HandleViewCreated(object sender, EventArgs e)
         {
+            
+
             var ccGView = sender as CCGameView;
-            var contentSearchPaths = new List<string>() { "Resources" };
+            var contentSearchPaths = new List<string>() { "Resources","Assets" };
             ccGView.ContentManager.SearchPaths = contentSearchPaths;
+            
             if (ccGView != null)
             {
                 ccGView.DesignResolution = new CCSizeI(App.Width, App.Height);
@@ -179,7 +179,7 @@ namespace Psyche_Game
                     psyche.VelocityY = 0;
                     psyche.PositionY = 200;
                 }
-
+                
                 ccGView.RunWithScene(_scene);
             }
         }
