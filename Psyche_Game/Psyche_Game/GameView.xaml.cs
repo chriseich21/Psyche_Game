@@ -59,8 +59,9 @@ namespace Psyche_Game
 
                 //ship
                 ship = new Ship();
-                ship.PositionX = 200;
-                ship.PositionY = 50;
+                ship.PositionX = ((App.Width) / 2);
+                ship.PositionY = ((App.Height) / 4);
+                
                 _layer.AddChild(ship);
 
 
@@ -96,7 +97,7 @@ namespace Psyche_Game
                 };*/
                // _layer.AddChild(slowstars);
 
-                fire = new CCParticleFire(new CCPoint(200, 50))
+                fire = new CCParticleFire(new CCPoint(((App.Width) / 2), ((App.Height) / 4)))
                 {
                     StartSize = 1,
                     Angle = 270,
@@ -143,16 +144,27 @@ namespace Psyche_Game
             {
                 // Perform touch handling here
             }
+            if (touches[0].Location.X > (App.Height/2) )
+            {
+                //ship.PositionX -= 150;
+            }
+            else if (touches[0].Location.X < (App.Height/2) )
+            {
+                //ship.PositionX += 150;
+            }
+
         }
 
         void HandleTouchesMoved(System.Collections.Generic.List<CCTouch> touches, CCEvent touchEvent)
         {
             // we only care about the first touch:
+            
             var locationOnScreen = touches[0].Location;
             ship.PositionX = locationOnScreen.X;
-            ship.PositionY = locationOnScreen.Y;
+            //ship.PositionY = locationOnScreen.Y;
             fire.PositionX = locationOnScreen.X;
-            fire.PositionY = locationOnScreen.Y;
+            //fire.PositionY = locationOnScreen.Y;
+            
         }
     }
 }

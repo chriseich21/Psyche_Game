@@ -9,12 +9,13 @@ namespace Psyche_Game
     {
         CCSprite sprite;
 
+
         public Ship() : base()
         {
             sprite = new CCSprite("rocket.png");
             // Center the Sprite in this entity to simplify
             // centering the Ship when it is instantiated
-            sprite.Scale = 0.25F;
+            sprite.Scale = 0.5F;
             sprite.AnchorPoint = CCPoint.AnchorMiddleBottom;
             this.AddChild(sprite);
 
