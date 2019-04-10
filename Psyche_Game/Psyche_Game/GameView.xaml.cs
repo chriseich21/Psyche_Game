@@ -24,7 +24,7 @@ namespace Psyche_Game
         Psyche psyche;
 
         CCParticleFire fire;
-        public GameView(GamePage page)
+        public GameView()
         {
             //create a new view
             var sharpView = new CocosSharpView
@@ -47,9 +47,9 @@ namespace Psyche_Game
             CheckCollisionAsteroids();
             CheckCollisionPsyche();
         }
-        void CheckCollisionAsteroids()
+
         //check collison function dtermines if the ship touches an asteroid
-        void CheckCollision()
+        void CheckCollisionAsteroids()
         {
 
             foreach (var asteroid in asteroids)

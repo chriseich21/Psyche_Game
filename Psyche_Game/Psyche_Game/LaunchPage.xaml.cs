@@ -29,7 +29,7 @@ namespace Psyche_Game
         //button to launhc the game 
         async void OnLaunchClicked(object sender, EventArgs e){
             GamePage GameInstance = new GamePage() { BackgroundColor = Color.Black };
-            GameInstance.Content = new GameView(GameInstance);
+            GameInstance.Content = new GameView();
             NavigationPage.SetHasNavigationBar(GameInstance, false);
          //rcoket picture
             var rocket = this.FindByName("Rocket");

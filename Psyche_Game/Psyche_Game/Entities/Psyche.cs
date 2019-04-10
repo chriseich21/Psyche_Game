@@ -8,7 +8,7 @@ namespace Psyche_Game
     class Psyche : CCNode
     {
         //create a sprite
-        CCSprite sprite;
+        public CCSprite sprite;
         //getter and setters for velocity value
         public float VelocityX
         {
