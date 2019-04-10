@@ -148,6 +148,12 @@
     <AndroidResource Include="Resources\drawable\nasa.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\Content\win.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\lose.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable\probepic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

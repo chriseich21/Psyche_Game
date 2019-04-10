@@ -42,8 +42,9 @@ namespace Psyche_Game
         void SeeAsteroid(float unusedValue)
         {
             Asteroid newAsteroid = AsteroidFactory.Self.CreateNew();
-            newAsteroid.PositionX = 200;
-            newAsteroid.PositionY = 500;
+            Random random = new Random();
+            newAsteroid.PositionX = random.Next(500);
+            newAsteroid.PositionY = 700;
             newAsteroid.VelocityY = -50;
         }
 

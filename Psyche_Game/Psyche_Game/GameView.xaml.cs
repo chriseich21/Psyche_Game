@@ -14,6 +14,8 @@ namespace Psyche_Game
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GameView : ContentView
     {
+        private GamePage Page;
+        CCGameView ccGView;
         //instantiate Variables
         CCScene _scene;
         CCLayer _layer;
@@ -22,7 +24,7 @@ namespace Psyche_Game
         Psyche psyche;
 
         CCParticleFire fire;
-        public GameView()
+        public GameView(GamePage page)
         {
             //create a new view
             var sharpView = new CocosSharpView
@@ -42,9 +44,10 @@ namespace Psyche_Game
             fire.PositionY = ship.PositionY;
             //collision here
 
-            CheckCollision();
-
+            CheckCollisionAsteroids();
+            CheckCollisionPsyche();
         }
+        void CheckCollisionAsteroids()
         //check collison function dtermines if the ship touches an asteroid
         void CheckCollision()
         {
@@ -55,8 +58,26 @@ namespace Psyche_Game
 
                 if (hit)
                 {
-                        //Collision Event
+                    var Lose = new Lose();
+                    Lose.PositionX = ((App.Width) / 2);
+                    Lose.PositionY = ((App.Height) / 4);
+                    _layer.AddChild(Lose);
+                    ccGView.Scheduler.PauseAllTargets();
                 }
+            }
+        }
+
+        void CheckCollisionPsyche()
+        {
+            bool hit = ship.sprite.BoundingBoxTransformedToWorld.IntersectsRect(psyche.sprite.BoundingBoxTransformedToWorld);
+
+            if (hit)
+            {
+                var Win = new Win();
+                Win.PositionX = ((App.Width) / 2);
+                Win.PositionY = ((App.Height) / 4);
+                _layer.AddChild(Win);
+                ccGView.Scheduler.PauseAllTargets();
             }
         }
         
@@ -162,10 +183,11 @@ namespace Psyche_Game
 
                 psyche = new Psyche();
                 psyche.PositionX = 200;
-                psyche.PositionY = 2000;
+                psyche.PositionY = 4000;
                 psyche.VelocityY = -50;
                 _layer.AddChild(psyche);
                 ccGView.RunWithScene(_scene);
+              
             }
         }
 
