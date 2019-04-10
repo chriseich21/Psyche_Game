@@ -34,7 +34,11 @@ namespace Psyche_Game
 
         public void Update()
         {
+            //updated sprites and/or particles here
+            fire.PositionX = ship.PositionX;
+            fire.PositionY = ship.PositionY;
             //collision here
+
             CheckCollision();
 
         }
