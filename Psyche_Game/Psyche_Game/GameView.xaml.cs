@@ -147,11 +147,11 @@ namespace Psyche_Game
             {
                 // Perform touch handling here
             }
-            if (touches[0].Location.X > (App.Height/2) )
+            if (touches[0].Location.X > (App.Width/ 2) )
             {
                 ship.VelocityX += 5;
             }
-            else if (touches[0].Location.X < (App.Height/2) )
+            else if (touches[0].Location.X < (App.Width/ 2) )
             {
                 ship.VelocityX -= 5;
             }
