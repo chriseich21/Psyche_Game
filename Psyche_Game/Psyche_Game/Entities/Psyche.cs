@@ -30,10 +30,11 @@ namespace Psyche_Game
 
         void ApplyVelocity(float time)
         {
-            PositionX += VelocityX * time;
-            PositionY += VelocityY * time;
-
-
+            if (PositionY > 200)
+            {
+                PositionX += VelocityX * time;
+                PositionY += VelocityY * time;
+            }
         }
     }
 }

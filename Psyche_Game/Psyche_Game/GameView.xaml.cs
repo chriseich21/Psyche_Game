@@ -169,15 +169,9 @@ namespace Psyche_Game
 
                 psyche = new Psyche();
                 psyche.PositionX = 200;
-                psyche.PositionY = 2000;
+                psyche.PositionY = 4000;
                 psyche.VelocityY = -50;
                 _layer.AddChild(psyche);
-                if (psyche.PositionY == 200)
-                {
-                    psyche.VelocityY = 0;
-                    psyche.PositionY = 200;
-                }
-                
                 ccGView.RunWithScene(_scene);
             }
         }
