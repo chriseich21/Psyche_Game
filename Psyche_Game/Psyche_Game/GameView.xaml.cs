@@ -31,6 +31,11 @@ namespace Psyche_Game
             Content = sharpView;
         }
 
+        public void Update()
+        {
+               //collision here
+        }
+
         public void DrawParticle(CCPoint point)
         {
             var explosion = new CCParticleFireworks(CCPoint.Zero)
@@ -45,6 +50,8 @@ namespace Psyche_Game
             _layer.AddChild(explosion);
         }
 
+        
+
         void HandleViewCreated(object sender, EventArgs e)
         {
             var ccGView = sender as CCGameView;
@@ -58,7 +65,7 @@ namespace Psyche_Game
                 _scene.AddLayer(_layer);
 
                 //ship
-                ship = new Ship();
+                ship = new Ship(this);
                 ship.PositionX = ((App.Width) / 2);
                 ship.PositionY = ((App.Height) / 4);
                 
@@ -161,13 +168,13 @@ namespace Psyche_Game
         void HandleTouchesMoved(System.Collections.Generic.List<CCTouch> touches, CCEvent touchEvent)
         {
             // we only care about the first touch:
-            /*
+            
             var locationOnScreen = touches[0].Location;
-            ship.PositionX = locationOnScreen.X;
-            //ship.PositionY = locationOnScreen.Y;
-            fire.PositionX = locationOnScreen.X;
+            /*ship.PositionX = locationOnScreen.X;
+            //ship.PositionY = locationOnScreen.Y;*/
+           // fire.PositionX = locationOnScreen.X;
             //fire.PositionY = locationOnScreen.Y;
-            */
+            
         }
     }
 }

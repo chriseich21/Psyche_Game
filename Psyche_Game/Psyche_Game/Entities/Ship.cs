@@ -8,6 +8,7 @@ namespace Psyche_Game
     class Ship : CCNode
     {
         CCSprite sprite;
+        GameView g;
         public float VelocityX
         {
             get;
@@ -20,8 +21,9 @@ namespace Psyche_Game
             set;
         }
 
-        public Ship() : base()
+        public Ship(GameView gView) : base()
         {
+            g = gView;
             sprite = new CCSprite("rocket.png");
             // Center the Sprite in this entity to simplify
             // centering the Ship when it is instantiated
@@ -52,9 +54,11 @@ namespace Psyche_Game
             }
             else
             {
-                VelocityX *= -1;
+                VelocityX *= -0.1f;
                 PositionX += VelocityX * time;
             }
+
+            g.Update();
             /*
             if (!((PositionY + VelocityY * time) < App.Width || (PositionY + VelocityY * time) > App.Width))
             {
