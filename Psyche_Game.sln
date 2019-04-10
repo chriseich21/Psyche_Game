@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Psyche_Game.Android", "Psyc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Psyche_Game.iOS", "Psyche_Game\Psyche_Game.iOS\Psyche_Game.iOS.csproj", "{047F26FB-1E03-49B4-B903-AE00C25ED289}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Psyche_Game", "Psyche_Game\Psyche_Game\Psyche_Game.csproj", "{0EFD6213-9F9A-4257-9700-C0339086E49F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Psyche_Game", "Psyche_Game\Psyche_Game\Psyche_Game.csproj", "{0EFD6213-9F9A-4257-9700-C0339086E49F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,7 +80,6 @@ Global
 		{047F26FB-1E03-49B4-B903-AE00C25ED289}.AppStore|iPhoneSimulator.Build.0 = AppStore|iPhoneSimulator
 		{047F26FB-1E03-49B4-B903-AE00C25ED289}.AppStore|iPhoneSimulator.Deploy.0 = AppStore|iPhoneSimulator
 		{047F26FB-1E03-49B4-B903-AE00C25ED289}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
-		{047F26FB-1E03-49B4-B903-AE00C25ED289}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
 		{047F26FB-1E03-49B4-B903-AE00C25ED289}.Debug|Any CPU.Deploy.0 = Debug|iPhoneSimulator
 		{047F26FB-1E03-49B4-B903-AE00C25ED289}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{047F26FB-1E03-49B4-B903-AE00C25ED289}.Debug|iPhone.Build.0 = Debug|iPhone
@@ -116,7 +115,6 @@ Global
 		{0EFD6213-9F9A-4257-9700-C0339086E49F}.AppStore|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{0EFD6213-9F9A-4257-9700-C0339086E49F}.AppStore|iPhoneSimulator.Deploy.0 = Debug|Any CPU
 		{0EFD6213-9F9A-4257-9700-C0339086E49F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0EFD6213-9F9A-4257-9700-C0339086E49F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EFD6213-9F9A-4257-9700-C0339086E49F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{0EFD6213-9F9A-4257-9700-C0339086E49F}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{0EFD6213-9F9A-4257-9700-C0339086E49F}.Debug|iPhone.Build.0 = Debug|Any CPU
