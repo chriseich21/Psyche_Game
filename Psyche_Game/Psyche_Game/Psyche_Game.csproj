@@ -16,15 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="CustomizationPage.xaml.cs">
-      <DependentUpon>CustomizationPage.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="CustomizationPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="GamePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

@@ -7,8 +7,10 @@ namespace Psyche_Game
 {
     class Ship : CCNode
     {
+        //instatiate  the sprite
       public CCSprite sprite;
         GameView g;
+        //velocity getter sand setters
         public float VelocityX
         {
             get;
@@ -20,7 +22,7 @@ namespace Psyche_Game
             get;
             set;
         }
-
+        //creta ethe ship view
         public Ship(GameView gView) : base()
         {
             g = gView;
@@ -36,7 +38,7 @@ namespace Psyche_Game
 
             //Schedule(SeePsyche);
         }
-
+        //creat the asteroids
         void SeeAsteroid(float unusedValue)
         {
             Asteroid newAsteroid = AsteroidFactory.Self.CreateNew();

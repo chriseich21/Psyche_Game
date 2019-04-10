@@ -13,10 +13,12 @@ namespace Psyche_Game
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LaunchPage : ContentPage
 	{
+        //create gameView
         CocosSharpView gameView;
 
         public LaunchPage()
         {
+            //creta ean dlcor the launch page
             InitializeComponent();
             BackgroundColor = Color.FromHex("4698CF");
             ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("4698CF");
@@ -24,10 +26,11 @@ namespace Psyche_Game
            
         }
 
+        //button to launhc the game 
         async void OnLaunchClicked(object sender, EventArgs e){
             GamePage GameInstance = new GamePage() { BackgroundColor = Color.Black, Content = new GameView() { BackgroundColor=Color.Black} };
             NavigationPage.SetHasNavigationBar(GameInstance, false);
-         
+         //rcoket picture
             var rocket = this.FindByName("Rocket");
             await ((StackLayout)rocket).TranslateTo(0, -1000, 1000);
 

@@ -12,6 +12,7 @@ namespace Psyche_Game
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LearnPage : ContentPage
 	{
+        //this creates and populate sthe learn page
 		public LearnPage ()
 		{
 			InitializeComponent ();

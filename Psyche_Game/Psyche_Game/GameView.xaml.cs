@@ -14,6 +14,7 @@ namespace Psyche_Game
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GameView : ContentView
     {
+        //instantiate Variables
         CCScene _scene;
         CCLayer _layer;
         Ship ship;
@@ -23,6 +24,7 @@ namespace Psyche_Game
         CCParticleFire fire;
         public GameView()
         {
+            //create a new view
             var sharpView = new CocosSharpView
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -32,6 +34,7 @@ namespace Psyche_Game
             Content = sharpView;
         }
 
+        //check for the location of the ship
         public void Update()
         {
             //updated sprites and/or particles here
@@ -42,6 +45,7 @@ namespace Psyche_Game
             CheckCollision();
 
         }
+        //check collison function dtermines if the ship touches an asteroid
         void CheckCollision()
         {
 
@@ -55,25 +59,8 @@ namespace Psyche_Game
                 }
             }
         }
-        bool Intersectsrect(float sprite1x,float sprite1y,float sprite1width,float sprite1height, float sprite2x, float sprite2y, float sprite2width, float sprite2height) {
-            if (sprite1x == sprite1y)
-            {
-                return true;
-            }
-            if (sprite1y==sprite2y) {
-                return true;
-            }
-            if (sprite1width == sprite2width)
-            {
-                return true;
-            }
-            if (sprite1height == sprite2height)
-            {
-                return true;
-            }
-            return false;
-        }
-
+        
+        //draws our particle effects in the view 
         public void DrawParticle(CCPoint point)
         {
             var explosion = new CCParticleFireworks(CCPoint.Zero)
@@ -93,13 +80,14 @@ namespace Psyche_Game
         void HandleViewCreated(object sender, EventArgs e)
         {
             
-
+            //loads the view
             var ccGView = sender as CCGameView;
             var contentSearchPaths = new List<string>() { "Resources","Assets" };
             ccGView.ContentManager.SearchPaths = contentSearchPaths;
             
             if (ccGView != null)
             {
+                //if the view is created then load all the assets
                 ccGView.DesignResolution = new CCSizeI(App.Width, App.Height);
                 _scene = new CCScene(ccGView);
                 _layer = new CCLayer();
@@ -112,7 +100,7 @@ namespace Psyche_Game
                 
                 _layer.AddChild(ship);
 
-
+                //starts are generated as particles
                 var stars = new CCParticleRain(new CCPoint(200, App.Height))
                 {
                     StartSize = 1,
@@ -146,7 +134,7 @@ namespace Psyche_Game
                 };
                 faststars.StartColor = new CCColor4F(0.0f, 0.0f, 1.0f, 1.0f);
                 _layer.AddChild(slowstars);
-
+                //the fire trailing the rocket
                 fire = new CCParticleFire(new CCPoint(((App.Width) / 2), ((App.Height) / 4)))
                 {
                     StartSize = 1,
@@ -156,10 +144,9 @@ namespace Psyche_Game
                     
                 };
                 _layer.AddChild(fire);
-
+                //the handlers for the screne being touched
                 var touchEvent = new CCEventListenerTouchAllAtOnce();
                 touchEvent.OnTouchesEnded = OnTouchesEnded;
-                touchEvent.OnTouchesMoved = HandleTouchesMoved;
                 _layer.AddEventListener(touchEvent);
 
                 //asteroid
@@ -200,16 +187,6 @@ namespace Psyche_Game
 
         }
 
-        void HandleTouchesMoved(System.Collections.Generic.List<CCTouch> touches, CCEvent touchEvent)
-        {
-            // we only care about the first touch:
-            
-            var locationOnScreen = touches[0].Location;
-            /*ship.PositionX = locationOnScreen.X;
-            //ship.PositionY = locationOnScreen.Y;*/
-           // fire.PositionX = locationOnScreen.X;
-            //fire.PositionY = locationOnScreen.Y;
-            
-        }
+        
     }
 }

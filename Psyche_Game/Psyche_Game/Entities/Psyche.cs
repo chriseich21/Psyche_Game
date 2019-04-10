@@ -7,8 +7,9 @@ namespace Psyche_Game
 {
     class Psyche : CCNode
     {
+        //create a sprite
         CCSprite sprite;
-
+        //getter and setters for velocity value
         public float VelocityX
         {
             get;
@@ -20,14 +21,14 @@ namespace Psyche_Game
             get;
             set;
         }
-
+        //create and ad dthe psyche sprite
         public Psyche() : base()
         {
             sprite = new CCSprite("psycheAsteroid.png");
             this.AddChild(sprite);
             this.Schedule(ApplyVelocity);
         }
-
+        //aply the vleicoty to the psyche sprite
         void ApplyVelocity(float time)
         {
             if (PositionY > 200)
