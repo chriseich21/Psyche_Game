@@ -14,6 +14,7 @@ namespace Psyche_Game
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GameView : ContentView
     {
+        private GamePage Page;
         CCScene _scene;
         CCLayer _layer;
         Ship ship;
@@ -21,8 +22,9 @@ namespace Psyche_Game
         Psyche psyche;
 
         CCParticleFire fire;
-        public GameView()
+        public GameView(GamePage page)
         {
+            Page = page;
             var sharpView = new CocosSharpView
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -39,10 +41,10 @@ namespace Psyche_Game
             fire.PositionY = ship.PositionY;
             //collision here
 
-            CheckCollision();
-
+            CheckCollisionAsteroids();
+            CheckCollisionPsyche();
         }
-        void CheckCollision()
+        void CheckCollisionAsteroids()
         {
 
             foreach (var asteroid in asteroids)
@@ -51,30 +53,22 @@ namespace Psyche_Game
 
                 if (hit)
                 {
-                        //Collision Event
+                    Page.TriggerLoss();
                 }
             }
         }
-        bool Intersectsrect(float sprite1x,float sprite1y,float sprite1width,float sprite1height, float sprite2x, float sprite2y, float sprite2width, float sprite2height) {
-            if (sprite1x == sprite1y)
+
+        void CheckCollisionPsyche()
+        {
+            bool hit = ship.sprite.BoundingBoxTransformedToWorld.IntersectsRect(psyche.sprite.BoundingBoxTransformedToWorld);
+
+            if (hit)
             {
-                return true;
+                Page.TriggerLoss();
             }
-            if (sprite1y==sprite2y) {
-                return true;
-            }
-            if (sprite1width == sprite2width)
-            {
-                return true;
-            }
-            if (sprite1height == sprite2height)
-            {
-                return true;
-            }
-            return false;
         }
 
-        public void DrawParticle(CCPoint point)
+            public void DrawParticle(CCPoint point)
         {
             var explosion = new CCParticleFireworks(CCPoint.Zero)
             {

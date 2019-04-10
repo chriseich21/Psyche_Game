@@ -25,15 +25,17 @@ namespace Psyche_Game
         }
 
         async void OnLaunchClicked(object sender, EventArgs e){
-            GamePage GameInstance = new GamePage() { BackgroundColor = Color.Black, Content = new GameView() { BackgroundColor=Color.Black} };
+            GamePage GameInstance = new GamePage() { BackgroundColor = Color.Black };
+            GameInstance.Content = new GameView(GameInstance);
             NavigationPage.SetHasNavigationBar(GameInstance, false);
          
             var rocket = this.FindByName("Rocket");
             await ((StackLayout)rocket).TranslateTo(0, -1000, 1000);
 
-            //  await Navigation.PushAsync(GameInstance);
-            Navigation.InsertPageBefore(GameInstance, Navigation.NavigationStack[0]);
-            await Navigation.PopToRootAsync();
+            await Navigation.PushAsync(GameInstance);
+            
+            //Navigation.InsertPageBefore(GameInstance, Navigation.NavigationStack[0]);
+            //await Navigation.PopToRootAsync();
 
         }
 

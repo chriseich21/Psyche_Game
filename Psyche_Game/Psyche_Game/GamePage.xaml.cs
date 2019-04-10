@@ -15,7 +15,18 @@ namespace Psyche_Game
 		public GamePage ()
 		{
 			InitializeComponent ();
-
-		}
+            
+        }
+        //async
+        public void TriggerWin() {
+         //   WinPage page = new WinPage();
+         //   await Navigation.PushAsync(page);
+        }
+        //async
+        public async void TriggerLoss()
+        {
+         //   LosePage page = new LosePage();
+            await Navigation.PushAsync(new LosePage());
+        }
 	}
 }

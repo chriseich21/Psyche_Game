@@ -7,7 +7,7 @@ namespace Psyche_Game
 {
     class Psyche : CCNode
     {
-        CCSprite sprite;
+        public CCSprite sprite;
 
         public float VelocityX
         {
