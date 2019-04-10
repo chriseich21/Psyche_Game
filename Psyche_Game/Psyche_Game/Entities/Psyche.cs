@@ -32,6 +32,8 @@ namespace Psyche_Game
         {
             PositionX += VelocityX * time;
             PositionY += VelocityY * time;
+
+
         }
     }
 }

@@ -86,16 +86,18 @@ namespace Psyche_Game
                 };
                 faststars.StartColor = new CCColor4F(1.0f,1.0f,1.0f,1.0f);
                 _layer.AddChild(faststars);
-                /*
+                
                 var slowstars = new CCParticleRain(new CCPoint(200, App.Height))
                 {
+                    TotalParticles = 1,
                     StartSize = 2,
                     Color = CCColor3B.Blue,
                     Speed = 50,
                     SourcePosition = new CCPoint(0.0f, -10.0f),
 
-                };*/
-               // _layer.AddChild(slowstars);
+                };
+                faststars.StartColor = new CCColor4F(0.0f, 0.0f, 1.0f, 1.0f);
+                _layer.AddChild(slowstars);
 
                 fire = new CCParticleFire(new CCPoint(((App.Width) / 2), ((App.Height) / 4)))
                 {
@@ -138,6 +140,7 @@ namespace Psyche_Game
             }
         }
 
+
         void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
         {
             if (touches.Count > 0)
@@ -146,11 +149,11 @@ namespace Psyche_Game
             }
             if (touches[0].Location.X > (App.Height/2) )
             {
-                //ship.PositionX -= 150;
+                ship.VelocityX += 5;
             }
             else if (touches[0].Location.X < (App.Height/2) )
             {
-                //ship.PositionX += 150;
+                ship.VelocityX -= 5;
             }
 
         }
@@ -158,13 +161,13 @@ namespace Psyche_Game
         void HandleTouchesMoved(System.Collections.Generic.List<CCTouch> touches, CCEvent touchEvent)
         {
             // we only care about the first touch:
-            
+            /*
             var locationOnScreen = touches[0].Location;
             ship.PositionX = locationOnScreen.X;
             //ship.PositionY = locationOnScreen.Y;
             fire.PositionX = locationOnScreen.X;
             //fire.PositionY = locationOnScreen.Y;
-            
+            */
         }
     }
 }
