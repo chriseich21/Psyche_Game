@@ -7,7 +7,7 @@ namespace Psyche_Game
 {
     class Asteroid : CCNode
     {
-        CCSprite sprite;
+        public CCSprite sprite;
 
         public float VelocityX
         {
@@ -20,7 +20,10 @@ namespace Psyche_Game
             get;
             set;
         }
-
+        public CCSprite GetSprite()
+        {
+            return sprite;
+        }
         public Asteroid() : base()
         {
             String[] arr = new String[3] { "asteroid1.png", "asteroid2.png", "asteroid3.png" };

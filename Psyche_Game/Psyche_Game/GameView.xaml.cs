@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CocosSharp;
+using CocosDenshion;
 
 namespace Psyche_Game
 {
@@ -31,6 +32,48 @@ namespace Psyche_Game
             Content = sharpView;
         }
 
+        public void Update()
+        {
+            //updated sprites and/or particles here
+            fire.PositionX = ship.PositionX;
+            fire.PositionY = ship.PositionY;
+            //collision here
+
+            CheckCollision();
+
+        }
+        void CheckCollision()
+        {
+
+            foreach (var asteroid in asteroids)
+            {
+                bool hit = ship.sprite.BoundingBoxTransformedToWorld.IntersectsRect(asteroid.sprite.BoundingBoxTransformedToWorld);
+
+                if (hit)
+                {
+                        //Collision Event
+                }
+            }
+        }
+        bool Intersectsrect(float sprite1x,float sprite1y,float sprite1width,float sprite1height, float sprite2x, float sprite2y, float sprite2width, float sprite2height) {
+            if (sprite1x == sprite1y)
+            {
+                return true;
+            }
+            if (sprite1y==sprite2y) {
+                return true;
+            }
+            if (sprite1width == sprite2width)
+            {
+                return true;
+            }
+            if (sprite1height == sprite2height)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public void DrawParticle(CCPoint point)
         {
             var explosion = new CCParticleFireworks(CCPoint.Zero)
@@ -45,11 +88,16 @@ namespace Psyche_Game
             _layer.AddChild(explosion);
         }
 
+        
+
         void HandleViewCreated(object sender, EventArgs e)
         {
+            
+
             var ccGView = sender as CCGameView;
-            var contentSearchPaths = new List<string>() { "Resources" };
+            var contentSearchPaths = new List<string>() { "Resources","Assets" };
             ccGView.ContentManager.SearchPaths = contentSearchPaths;
+            
             if (ccGView != null)
             {
                 ccGView.DesignResolution = new CCSizeI(App.Width, App.Height);
@@ -58,7 +106,7 @@ namespace Psyche_Game
                 _scene.AddLayer(_layer);
 
                 //ship
-                ship = new Ship();
+                ship = new Ship(this);
                 ship.PositionX = ((App.Width) / 2);
                 ship.PositionY = ((App.Height) / 4);
                 
@@ -86,16 +134,18 @@ namespace Psyche_Game
                 };
                 faststars.StartColor = new CCColor4F(1.0f,1.0f,1.0f,1.0f);
                 _layer.AddChild(faststars);
-                /*
+                
                 var slowstars = new CCParticleRain(new CCPoint(200, App.Height))
                 {
+                    TotalParticles = 1,
                     StartSize = 2,
                     Color = CCColor3B.Blue,
                     Speed = 50,
                     SourcePosition = new CCPoint(0.0f, -10.0f),
 
-                };*/
-               // _layer.AddChild(slowstars);
+                };
+                faststars.StartColor = new CCColor4F(0.0f, 0.0f, 1.0f, 1.0f);
+                _layer.AddChild(slowstars);
 
                 fire = new CCParticleFire(new CCPoint(((App.Width) / 2), ((App.Height) / 4)))
                 {
@@ -132,19 +182,20 @@ namespace Psyche_Game
             }
         }
 
+
         void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
         {
             if (touches.Count > 0)
             {
                 // Perform touch handling here
             }
-            if (touches[0].Location.X > (App.Height/2) )
+            if (touches[0].Location.X > (App.Width/ 2) )
             {
-                //ship.PositionX -= 150;
+                ship.VelocityX += 5;
             }
-            else if (touches[0].Location.X < (App.Height/2) )
+            else if (touches[0].Location.X < (App.Width/ 2) )
             {
-                //ship.PositionX += 150;
+                ship.VelocityX -= 5;
             }
 
         }
@@ -154,9 +205,9 @@ namespace Psyche_Game
             // we only care about the first touch:
             
             var locationOnScreen = touches[0].Location;
-            ship.PositionX = locationOnScreen.X;
-            //ship.PositionY = locationOnScreen.Y;
-            fire.PositionX = locationOnScreen.X;
+            /*ship.PositionX = locationOnScreen.X;
+            //ship.PositionY = locationOnScreen.Y;*/
+           // fire.PositionX = locationOnScreen.X;
             //fire.PositionY = locationOnScreen.Y;
             
         }

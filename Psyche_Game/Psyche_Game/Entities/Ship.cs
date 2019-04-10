@@ -7,11 +7,23 @@ namespace Psyche_Game
 {
     class Ship : CCNode
     {
-        CCSprite sprite;
-
-
-        public Ship() : base()
+      public CCSprite sprite;
+        GameView g;
+        public float VelocityX
         {
+            get;
+            set;
+        }
+
+        public float VelocityY
+        {
+            get;
+            set;
+        }
+
+        public Ship(GameView gView) : base()
+        {
+            g = gView;
             sprite = new CCSprite("rocket.png");
             // Center the Sprite in this entity to simplify
             // centering the Ship when it is instantiated
@@ -20,6 +32,8 @@ namespace Psyche_Game
             this.AddChild(sprite);
 
             Schedule(SeeAsteroid, interval: 1.5f);
+            this.Schedule(ApplyVelocity);
+
             //Schedule(SeePsyche);
         }
 
@@ -29,6 +43,32 @@ namespace Psyche_Game
             newAsteroid.PositionX = 200;
             newAsteroid.PositionY = 500;
             newAsteroid.VelocityY = -50;
+        }
+
+        void ApplyVelocity(float time)
+        {
+
+            if (!((PositionX + VelocityX * time) < 0 || (PositionX + VelocityX * time) > App.Width))
+            {
+                PositionX += VelocityX * time;
+            }
+            else
+            {
+                VelocityX *= -0.1f;
+                PositionX += VelocityX * time;
+            }
+
+            g.Update();
+            /*
+            if (!((PositionY + VelocityY * time) < App.Width || (PositionY + VelocityY * time) > App.Width))
+            {
+                PositionY += VelocityY * time;
+            }
+            else
+            {
+                VelocityY *= -1;
+                PositionY += VelocityY * time;
+            }*/
         }
         /*
         void SeePsyche(float unusedValue)
