@@ -12,21 +12,26 @@ namespace Psyche_Game
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class GamePage : ContentPage
 	{
-		public GamePage ()
+        //private GameView gameView;
+        public GamePage ()
 		{
 			InitializeComponent ();
+            //gameView = gv;
             
         }
-        //async
+
         public void TriggerWin() {
-         //   WinPage page = new WinPage();
-         //   await Navigation.PushAsync(page);
+           WinPage page = new WinPage() { BackgroundColor = Color.FromHex("4698CF") };
+            //Navigation.PushAsync(page);
+            //Navigation.InsertPageBefore(page, Navigation.NavigationStack[0]);
+            Navigation.PushModalAsync(page);
         }
-        //async
-        public async void TriggerLoss()
+
+        public void TriggerLoss()
         {
-         //   LosePage page = new LosePage();
-            await Navigation.PushAsync(new LosePage());
+            LosePage page = new LosePage() { BackgroundColor = Color.FromHex("4698CF") };
+            //Navigation.PushAsync(page);
+            Navigation.PushModalAsync(page);
         }
 	}
 }

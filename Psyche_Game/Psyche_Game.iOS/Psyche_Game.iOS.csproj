@@ -208,4 +208,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\nasa.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\win.png" />
+  </ItemGroup>
 </Project>

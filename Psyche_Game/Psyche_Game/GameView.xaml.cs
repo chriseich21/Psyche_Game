@@ -15,6 +15,7 @@ namespace Psyche_Game
     public partial class GameView : ContentView
     {
         private GamePage Page;
+        CCGameView ccGView;
         CCScene _scene;
         CCLayer _layer;
         Ship ship;
@@ -53,7 +54,11 @@ namespace Psyche_Game
 
                 if (hit)
                 {
-                    Page.TriggerLoss();
+                    var Lose = new Lose();
+                    Lose.PositionX = ((App.Width) / 2);
+                    Lose.PositionY = ((App.Height) / 4);
+                    _layer.AddChild(Lose);
+                    ccGView.Scheduler.PauseAllTargets();
                 }
             }
         }
@@ -64,7 +69,11 @@ namespace Psyche_Game
 
             if (hit)
             {
-                Page.TriggerLoss();
+                var Win = new Win();
+                Win.PositionX = ((App.Width) / 2);
+                Win.PositionY = ((App.Height) / 4);
+                _layer.AddChild(Win);
+                ccGView.Scheduler.PauseAllTargets();
             }
         }
 
@@ -86,9 +95,8 @@ namespace Psyche_Game
 
         void HandleViewCreated(object sender, EventArgs e)
         {
-            
 
-            var ccGView = sender as CCGameView;
+            ccGView = sender as CCGameView;
             var contentSearchPaths = new List<string>() { "Resources","Assets" };
             ccGView.ContentManager.SearchPaths = contentSearchPaths;
             
@@ -173,6 +181,7 @@ namespace Psyche_Game
                 psyche.VelocityY = -50;
                 _layer.AddChild(psyche);
                 ccGView.RunWithScene(_scene);
+              
             }
         }
 
